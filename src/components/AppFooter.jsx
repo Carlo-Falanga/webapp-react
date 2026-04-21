@@ -2,7 +2,12 @@ export default function AppFooter() {
 
     return(
         <>
-        <h1>footer</h1>
+        <footer className="bg-light text-center text-lg-start">
+            <div className="text-center p-3">
+                © 2024 Copyright:
+                <a className="text-dark" href="#"> movies.com</a>
+            </div>
+        </footer>
         </>
     )
 }
