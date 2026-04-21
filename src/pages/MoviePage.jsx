@@ -28,22 +28,22 @@ export default function MoviePage() {
     <>
       <section>
         <div className="container pt-5">
-          <div className="row row-cols-1 row-cols-md-2 g-4">
+          <div className="row row-cols-1 row-cols-md-2 g-4 py-5 d-flex align-items-center">
             {movie && (
               <>
-                <div className="col">
-                  <img src={movie.image} alt={movie.title} />
+                <div className="col-sm-12 col-md-4">
+                  <img src={`../images/${movie.image}`} alt={movie.title} className="img-fluid rounded-3 shadow-sm movie_page_img" />
                 </div>
                 <div className="col">
                   <h2>{movie.title}</h2>
                   <div className="text-secondary fst-italic">Crime</div>
                   <div className="py-3 d-flex flex-row gap-4">
                     <div className="">
-                      <span className="fw-semibold">Release Year:</span>{" "}
+                      <span className="fw-semibold">Release Year:</span>
                       {movie.release_year}
                     </div>
                     <div className="">
-                      <span className="fw-semibold">Director:</span>{" "}
+                      <span className="fw-semibold">Director:</span>
                       {movie.director}
                     </div>
                   </div>
