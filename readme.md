@@ -6,12 +6,12 @@
 ### Milestone 1: Basic setup and configuration
 1) **Install dependencies and set up the project structure**
 
-- express
 - react
 - react-router
 - axios
 - bootstrap
 - bootstrap-icons
+- font-awesome inter font
 
 ### Milestone 2: Create basic components and pages
 2) **Create a defaultLayout component to wrap all pages and include the navigation bar and footer.**
