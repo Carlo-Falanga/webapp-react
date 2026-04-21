@@ -13,6 +13,8 @@ export default function HomePage() {
       .get(api_url)
       .then((response) => {
         setMovies(response.data);
+        console.log(response.data);
+        
       })
       .catch((error) => {
         console.log(error);

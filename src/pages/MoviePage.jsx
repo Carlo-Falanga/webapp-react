@@ -18,7 +18,6 @@ export default function MoviePage() {
         // do something with the response
         setMovie(response.data);
         console.log(response.data);
-        
       })
       .catch((error) => {
         console.error("Error fetching movie data:", error);
@@ -27,19 +26,60 @@ export default function MoviePage() {
 
   return (
     <>
-      <h1>Movie Page: {movieId}</h1>
-      {movie ? (
-        <div>
-          <h2>{movie.title}</h2>
-          <p>{movie.description}</p>
-          {/* movie review text */}
-            {movie.reviews && movie.reviews.map((review) => (
-              <p key={review.id}>{review.text}</p>
-            ))}
+      <section>
+        <div className="container pt-5">
+          <div className="row row-cols-1 row-cols-md-2 g-4">
+            {movie && (
+              <>
+                <div className="col">
+                  <img src={movie.image} alt={movie.title} />
+                </div>
+                <div className="col">
+                  <h2>{movie.title}</h2>
+                  <div className="text-secondary fst-italic">Crime</div>
+                  <div className="py-3 d-flex flex-row gap-4">
+                    <div className="">
+                      <span className="fw-semibold">Release Year:</span>{" "}
+                      {movie.release_year}
+                    </div>
+                    <div className="">
+                      <span className="fw-semibold">Director:</span>{" "}
+                      {movie.director}
+                    </div>
+                  </div>
+                  <p>{movie.abstract}</p>
+                </div>
+              </>
+            )}
+          </div>
         </div>
-      ) : (
-        <p>Movie not found.</p>
-      )}
+      </section>
+
+      <section className="py-5 bg-light">
+        <div className="container">
+          <h2 className="text-center mb-5">Reviews</h2>
+          <div className="row row-cols-1 row-cols-md-3 g-4">
+              {movie && movie.reviews && movie.reviews.map((review) => (
+                            <div className="col" key={review.id}>
+              <div className="card">
+                <div className="card-body">
+                  <p className="card-text">
+                    "This is an amazing product! It has helped me streamline my
+                    workflow and become more productive. I highly recommend it."
+                  </p>
+                  <div className="d-flex align-items-center mt-3">
+                    <div>
+                      <h6 className="mb-0">{review.name}</h6>
+                      <small><span className="fw-semibold">Vote:</span> {review.vote}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
