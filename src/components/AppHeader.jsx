@@ -28,7 +28,7 @@ export default function AppHeader() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link disabled" to="/movies">
+                <NavLink className="nav-link disabled" to="#">
                   Admin
                 </NavLink>
               </li>

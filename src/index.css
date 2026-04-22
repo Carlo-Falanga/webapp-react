@@ -9,3 +9,27 @@ body {
   max-width: 700px;
   width: 100%;
 }
+
+
+.hover_movie_card {
+  transition: 0.6s ease;
+}
+
+.eye_icon {
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  color: white;
+  opacity: 0;
+  transition: 0.6s ease;
+  font-size: 2rem;
+}
+
+/* HOVER SULLA CARD */
+.card:hover .hover_movie_card {
+  filter: brightness(50%);
+}
+
+.card:hover .eye_icon {
+  opacity: 1;
+}

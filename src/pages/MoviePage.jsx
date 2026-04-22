@@ -32,7 +32,11 @@ export default function MoviePage() {
             {movie && (
               <>
                 <div className="col-sm-12 col-md-4">
-                  <img src={`../images/${movie.image}`} alt={movie.title} className="img-fluid rounded-3 shadow-sm movie_page_img" />
+                  <img
+                    src={`../images/${movie.image}`}
+                    alt={movie.title}
+                    className="img-fluid rounded-3 shadow-sm movie_page_img"
+                  />
                 </div>
                 <div className="col">
                   <h2>{movie.title}</h2>
@@ -59,23 +63,29 @@ export default function MoviePage() {
         <div className="container">
           <h2 className="text-center mb-5">Reviews</h2>
           <div className="row row-cols-1 row-cols-md-3 g-4">
-              {movie && movie.reviews && movie.reviews.map((review) => (
-                            <div className="col" key={review.id}>
-              <div className="card">
-                <div className="card-body">
-                  <p className="card-text">
-                    "This is an amazing product! It has helped me streamline my
-                    workflow and become more productive. I highly recommend it."
-                  </p>
-                  <div className="d-flex align-items-center mt-3">
-                    <div>
-                      <h6 className="mb-0">{review.name}</h6>
-                      <small><span className="fw-semibold">Vote:</span> {review.vote}</small>
+            {movie &&
+              movie.reviews &&
+              movie.reviews.map((review) => (
+                <div className="col" key={review.id}>
+                  <div className="card">
+                    <div className="card-body">
+                      <p className="card-text fst-italic">
+                        "This is an amazing product! It has helped me streamline
+                        my workflow and become more productive. I highly
+                        recommend it."
+                      </p>
+                      <div className="d-flex align-items-center mt-3">
+                        <div>
+                          <h6 className="mb-0">{review.name}</h6>
+                          <small>
+                            <span className="fw-semibold">Vote:</span>{" "}
+                            {review.vote}
+                          </small>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
               ))}
           </div>
         </div>
