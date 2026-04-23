@@ -25,6 +25,10 @@ body {
   font-size: 2rem;
 }
 
+.card{
+  cursor: pointer;
+}
+
 /* HOVER SULLA CARD */
 .card:hover .hover_movie_card {
   filter: brightness(50%);

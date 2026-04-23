@@ -21,7 +21,7 @@ export default function MovieCard({ movie, onOpenModal }) {
           <p className="card-text">{movie.abstract}</p>
 
           <Link to={`/movies/${movie.id}`}>
-            <button className="btn btn-dark">View More</button>
+            <button className="btn btn-dark w-100">View More</button>
           </Link>
         </div>
       </div>
