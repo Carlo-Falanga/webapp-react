@@ -70,9 +70,7 @@ export default function MoviePage() {
                   <div className="card">
                     <div className="card-body">
                       <p className="card-text fst-italic">
-                        "This is an amazing product! It has helped me streamline
-                        my workflow and become more productive. I highly
-                        recommend it."
+                        "{review.text}"
                       </p>
                       <div className="d-flex align-items-center mt-3">
                         <div>
