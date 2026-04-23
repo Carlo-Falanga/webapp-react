@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import ReviewsForm from "../components/ReviewsForm";
 
 export default function MoviePage() {
   const { movieId } = useParams();
@@ -59,8 +60,8 @@ export default function MoviePage() {
         </div>
       </section>
 
-      <section className="py-5 bg-light">
-        <div className="container">
+      <section className="bg-light">
+        <div className="container py-5 my-5">
           <h2 className="text-center mb-5">Reviews</h2>
           <div className="row row-cols-1 row-cols-md-3 g-4">
             {movie &&
@@ -88,6 +89,8 @@ export default function MoviePage() {
           </div>
         </div>
       </section>
+
+      <ReviewsForm />
     </>
   );
 }
