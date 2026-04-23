@@ -90,7 +90,7 @@ export default function MoviePage() {
         </div>
       </section>
 
-      <ReviewsForm />
+      <ReviewsForm movieId={movieId} />
     </>
   );
 }

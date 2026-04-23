@@ -1,19 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function ReviewsForm() {
+export default function ReviewsForm({ movieId }) {
   const initialFormState = {
     name: "",
     vote: 5,
-    text: ""
+    text: "",
   };
 
   const [formData, setFormData] = useState(initialFormState);
+  const api_url =
+    import.meta.env.VITE_API_SERVER_ADDRESS || "http://localhost:4404";
 
-  const handleSubmit = e =>{
-    e.preventDefault()
-    console.log(formData);
     
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+
+    axios
+      //    Axios fetch to the api to submit the review
+      .post(`${api_url}/movies/${movieId}/reviews`, formData)
+      .then((response) => {
+        console.log("Review submitted successfully:", response.data);
+              setFormData(initialFormState);
+      })
+      .catch((error) => {
+        console.error("Error submitting review:", error);
+      });
+
+  };
+
 
   return (
     <section>
@@ -31,7 +47,9 @@ export default function ReviewsForm() {
               id="name"
               placeholder="Your name"
               value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
             />
           </div>
 
@@ -44,7 +62,9 @@ export default function ReviewsForm() {
               className="form-select"
               id="vote"
               value={formData.vote}
-              onChange={(e) => setFormData({...formData, vote: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, vote: e.target.value })
+              }
             >
               <option value="1">1</option>
               <option value="2">2</option>
@@ -65,7 +85,9 @@ export default function ReviewsForm() {
               rows="3"
               placeholder="Write your review here..."
               value={formData.text}
-              onChange={(e) => setFormData({...formData, text: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, text: e.target.value })
+              }
             ></textarea>
           </div>
           {/* Button */}
