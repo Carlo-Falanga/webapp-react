@@ -11,7 +11,7 @@ export default function MoviePage() {
   const api_url =
     import.meta.env.VITE_API_SERVER_ADDRESS + "/movies/" + movieId;
 
-  useEffect(() => {
+  const fetchMovieData = () => {
     // fetch the api using axios
     axios
       .get(api_url)
@@ -23,7 +23,9 @@ export default function MoviePage() {
       .catch((error) => {
         console.error("Error fetching movie data:", error);
       });
-  }, [movieId]);
+  };
+
+  useEffect(fetchMovieData, [movieId]);
 
   return (
     <>
@@ -70,9 +72,7 @@ export default function MoviePage() {
                 <div className="col" key={review.id}>
                   <div className="card">
                     <div className="card-body">
-                      <p className="card-text fst-italic">
-                        "{review.text}"
-                      </p>
+                      <p className="card-text fst-italic">"{review.text}"</p>
                       <div className="d-flex align-items-center mt-3">
                         <div>
                           <h6 className="mb-0">{review.name}</h6>
@@ -90,7 +90,7 @@ export default function MoviePage() {
         </div>
       </section>
 
-      <ReviewsForm movieId={movieId} />
+      <ReviewsForm movieId={movieId} refreshData={fetchMovieData}/>
     </>
   );
 }
