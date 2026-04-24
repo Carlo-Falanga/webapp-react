@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "../components/MovieCard";
 import MovieModal from "../components/MovieModal";
+import { useGlobalContext } from "../components/GlobalContext";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
