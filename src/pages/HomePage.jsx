@@ -7,8 +7,12 @@ export default function HomePage() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const { isLoading, setIsLoading } = useGlobalContext();
 
   useEffect(() => {
+    // loading state true
+    setIsLoading(true);
+
     const api_url = import.meta.env.VITE_API_SERVER_ADDRESS + "/movies/";
 
     // fetch the api using axios
@@ -20,6 +24,10 @@ export default function HomePage() {
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        // loading state false after request completes
+        setIsLoading(false);
       });
   }, []);
 
