@@ -11,7 +11,10 @@ export default function MovieCard({ movie, onOpenModal }) {
           onClick={() => onOpenModal(movie)}
         />
 
-        <i className="bi bi-eye-fill position-absolute eye_icon" onClick={() => onOpenModal(movie)}></i>
+        <i
+          className="bi bi-eye-fill position-absolute eye_icon"
+          onClick={() => onOpenModal(movie)}
+        ></i>
 
         <div className="card-body d-flex flex-column justify-content-between gap-2">
           <h5 className="card-title fw-bold">{movie.title}</h5>

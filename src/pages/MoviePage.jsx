@@ -12,7 +12,6 @@ export default function MoviePage() {
     import.meta.env.VITE_API_SERVER_ADDRESS + "/movies/" + movieId;
 
   const fetchMovieData = () => {
-
     // Loading state true
     // fetch the api using axios
     axios
@@ -92,7 +91,7 @@ export default function MoviePage() {
         </div>
       </section>
 
-      <ReviewsForm movieId={movieId} refreshData={fetchMovieData}/>
+      <ReviewsForm movieId={movieId} refreshData={fetchMovieData} />
     </>
   );
 }
